@@ -1,0 +1,10 @@
+requestwasher1 ,, es un input en donde esta el $30.00
+requesstep3 : poner los inonosc de flecha y ubicacion
+send tip :  las estrellitas cambiar de color.
+
+rating :  a history resume y de este a history y de este a history resume
+histry resume : poner el slider a imagenes
+paymen methods :navegacion en los paymehtos y el icono verde
+
+washer request detail:  flecha  y ubicacion
+washer request acepted : el blanco debe ocupar el ancho de la pagina tal como en la vista,

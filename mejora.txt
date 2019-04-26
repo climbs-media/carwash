@@ -1,0 +1,51 @@
+ICONOS 
+-touchable  :
+   width:wp('15%'),marginTop:hp('8%'),marginHorizontal: wp('6%')
+
+
+titulo principal :
+
+  <Text style={{
+       color:'white',
+       fontSize: hp('4%'),
+       fontWeight:'bold',
+        marginTop:hp('2.5%'),
+       marginHorizontal:wp('6%'),
+    
+   }}>Your car details</Text>
+
+
+
+ backgroundColor:'#F9F9FC', }}>
+
+PARTE BLANCA :
+
+  <View style={{
+        flex:1,
+         backgroundColor:'white',
+          marginTop:hp('-7.5%'),
+           marginHorizontal:wp('4%'),
+              borderTopStartRadius:hp('3%'),
+           borderTopEndRadius:hp('3%'),
+        }}>
+
+
+BOTN FINAL :
+
+  <View style={{alignItems:'center',marginTop:hp('5%')}}>
+                     <TouchableOpacity 
+                                 style={{width:wp('75%')}}
+                                 onPress={() =>this.props.navigation.navigate("carDetails2") }
+                                   >  
+                                <LinearGradient colors={['#6c30cc','#2d7cf7']}
+                                  style={{ 
+                                      borderRadius:wp('7%'),alignItems: 'center',
+                                        padding:hp('2%')}}
+                                         start={[0.1,0.1]}
+                                          end={[0.5,0.5]}
+                                           ><Text style={{
+                                               color:'white',fontSize:hp('2.7%')
+                                          }}>titulo..boton</Text>
+                               </LinearGradient>
+                             </TouchableOpacity>
+                             </View>

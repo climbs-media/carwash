@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="200px" viewBox="0 0 375 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Background</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="0%" x2="0%" y2="97.86875%" id="linearGradient-1">
+            <stop stop-color="#2D7CF7" offset="0%"></stop>
+            <stop stop-color="#6C30CC" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="375" height="200"></rect>
+    </defs>
+    <g id="Washer-App" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Form-become-a-washer">
+            <g id="Cabecera">
+                <g id="Background">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                    <ellipse id="Oval-2" fill="#000000" opacity="0.0459125906" mask="url(#mask-3)" cx="63.5" cy="84.6590909" rx="175.5" ry="199.431818"></ellipse>
+                    <ellipse id="Oval-2" fill="#000000" opacity="0.0459125906" mask="url(#mask-3)" cx="163.5" cy="-101.704545" rx="175.5" ry="199.431818"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
