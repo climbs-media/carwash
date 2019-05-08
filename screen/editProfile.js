@@ -70,7 +70,7 @@ async accessCamera()
   
  if (this.state.isCapturing)
     {
-         photo = await this.camera.takePictureAsync();
+         photo = await this.camera.takePictureAsync({ quality: 1, skipProcessing: true }).then((photo) => {  
 
          this.setState({ 
            image1: photo.uri,
@@ -79,7 +79,7 @@ async accessCamera()
           
            });
        
-     
+          })
         
     }
     else
@@ -234,13 +234,13 @@ transparent = {true}
       
      </Modal>
 { this.state.isCapturing?   
-  <View style={{height:'100%'}}>
+  <View style={{height:'100%',backgroundColor:'black'}}>
   {this.state.atras?
-  <View  style={{}}>
- <Camera style={{ height: "100%", width: "100%" }} 
+     <View  style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+     <Camera style={{ height: "65%", width: "100%" }} 
  ref={ref => { this.camera = ref}} type={Camera.Constants.Type.back}/>
     <TouchableOpacity style={{
-    position:'absolute',top :hp('5%'),left:wp('45%')
+    position:'absolute',top :hp('8%'),left:wp('47%')
  }} onPress={()=>this.setState({
    atras:false,
  })
@@ -255,11 +255,11 @@ transparent = {true}
  </TouchableOpacity>
 
   </View> :
-  <View style={{flex:1}}>
-     <Camera style={{ height: "100%", width: "100%" }} 
+    <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+    <Camera style={{ height: "65%", width: "100%" }} 
  ref={ref => { this.camera = ref}} type={Camera.Constants.Type.front}/>
    <TouchableOpacity style={{
-    position:'absolute',top :hp('5%'),left:wp('45%')
+    position:'absolute',top :hp('8%'),left:wp('47%')
  }} onPress={()=>this.setState({
    atras:true,
  })

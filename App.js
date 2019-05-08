@@ -411,8 +411,10 @@ const MyStack =createStackNavigator(
   video:Videos,
   },
   {
+
+
  // carDetails2:CarDetails2,
-  initialRouteName: 'video',
+  initialRouteName: 'splashScreen',
     }
  
     

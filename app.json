@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "carwashFin",
-    "slug": "carwashfin",
+    "name": "carwashAbrilCam",
+    "slug": "carwashabrilcam",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [

@@ -23,17 +23,100 @@ export default class SearchMakeModel extends Component {
     super(props);
   
     this.state = {
-      coche: 'Car Wash',
+  
       tam:'8%',
-      avanza:""
+    
+     
+      color1:'#C1BCBC',
+      modelos:[ "MINI Hatch 0", "MINI Convertible1", "MMINI 3-door Hatch2" ,
+               "MINI Hatch3" ,"MINI Convertible4",'Abarth5',
+              ' Alfa Romeo6', 'Alpine',  'Aston Martin',  'Audi',
+               'Bentley', 'BMW', 'Bugatti',"MINI Hatch", "MINI Convertible", "MMINI 3-door Hatch" ,
+               "MINI Hatch" ,"MINI Convertible"
+                ],
+       
     }
+    original=this.state.modelos
 }
+ 
 
-updateCoche = (coche) => {
-  this.setState({ coche: coche,tam:'5%',avanza:"carDetails1" })
-}
+ 
 
   render() {
+
+   
+
+   coches= this.state.modelos.map((item,i)=> {
+
+    if(i%2==0)
+    {
+     return( 
+       <View  key={i}>
+               <View  style={{flex:1,flexDirection: 'row',padding:hp('2%'),
+                 alignItems:'center',justifyContent:'center'
+                     }}  >
+                   
+
+                   <TouchableOpacity 
+                                    onPress={() =>{
+
+                                    this.props.navigation.navigate("carDetails1",{datos:item})
+                                    this.setState({
+                                      modelos:original ,//los valores originales
+                                  
+                                     })
+                                  
+                                  }}
+                                       > 
+                   <Text  
+                    style={{
+                      color:'#25265e', fontSize:hp('3%'), fontWeight:'bold'
+                    }}>{item}</Text>
+                   </TouchableOpacity>
+               </View>
+
+       </View>
+      )
+     }else{
+      return( 
+
+
+        <View  key={i}>
+                <View style={{flex:1,flexDirection: 'row',padding:hp('2%'),
+                  alignItems:'center',justifyContent:'center'
+                      }}   >
+                      <TouchableOpacity 
+                                    onPress={() =>{
+
+                                    this.props.navigation.navigate("carDetails1",{datos:item})
+                                    this.setState({
+                                      modelos:original, //los valores originales
+                                      
+                                    
+                                      
+                                     })
+                                  
+                                  }}
+                                       > 
+                   
+                    <Text
+                     style={{
+                      color:'#25265e', fontSize:hp('3%'), fontWeight:'bold'
+                     }}>{item}</Text>
+                    </TouchableOpacity>
+                </View>
+ 
+        </View>
+       )
+     }
+    
+    }
+   )
+
+
+
+
+
     return (
 
 
@@ -118,17 +201,40 @@ updateCoche = (coche) => {
                    
                     paddingHorizontal={5}
                     onChangeText={
+            
                       (text3)=>{
-                        this.setState(()=> {
-      
-                                          return {
-                                            tytexto:text3,
-                                          }
-                               })
-                      }
+
+                        //alert(original)
                       
-      
+                        busqueda=[]; //metere los coches que coincidan con la letra
+                        text3=text3.toLowerCase();
+
+                        this.state.modelos.map((item,i)=>{
+         
+                          if(item.toLowerCase().search(text3)!=-1 ){ 
+                            busqueda.push(item);   
+                               
+                            }
+     
+                         }
+
+                        
+                        )
+
+                        if(text3!=''){
+
+                          this.setState({
+                            modelos:busqueda //los que va encontrando
+                          })
+                      }else{
+                          this.setState({
+                           modelos:original //los valores originales
+                          })
+                         }
+                       }
+
                       }//fin de onchange
+                
                    />
                   
               </View>
@@ -138,50 +244,20 @@ updateCoche = (coche) => {
 
 
 
- <ScrollView showsVerticalScrollIndicator={false} style={{marginHorizontal:'4%'}}>
+ <ScrollView showsVerticalScrollIndicator={false} style={{marginHorizontal:'4%'}}
+ 
+ >
 
   
  
- {/*  ----------------------------------------------------------------------------  */}
-     
+ 
+      
+  {/* LOS COCHES */ }
 
+         {coches}
 
-
-
-         <View>
-            <Picker selectedValue = {this.state.coche} onValueChange = {this.updateCoche}>
-                <Picker.Item label = " Select your Car " value = "" />
-               <Picker.Item label = "MINI Hatch" value = "MINI Hatch" />
-               <Picker.Item label = "MINI Convertible" value = "MINI Convertible" />
-               <Picker.Item label = "MMINI 3-door Hatch" value = "MINI 3-door Hatch" />
-               <Picker.Item label = "MINI Hatch" value = "MINI Hatch" />
-               <Picker.Item label = "MINI Convertible" value = "MINI Convertible" />
-            </Picker>
-         
-         </View>
-
-
-
-
-
-        <TouchableOpacity style={{marginTop:hp('3%'),
-           height:hp('20%'),alignItems:'center',justifyContent:'center',
-           borderRadius:hp('3%'),borderColor:'#787993',elevation:5,
-        }}   onPress={() => this.props.navigation.navigate(this.state.avanza)} >
-           <Text style = {{
-       color:'#6c30cc',fontSize:hp(this.state.tam), fontWeight:"bold"
-             }}>{this.state.coche}</Text>
-        </TouchableOpacity>
-        <View style={{marginTop:hp('1%'),alignItems:'center',justifyContent:'center',
-         }} >
-           <Text style = {{
-           color:'#25265e',fontSize:hp('3%'), fontWeight:"bold"
-             }}>Press  and continue</Text>
-       </View>
-
-
-
-
+ 
+ 
         </ScrollView>
   </View>
 

@@ -104,9 +104,10 @@ async accessCamera(dato)
 
  if (this.state.isCapturing)
     {
-         photo = await this.camera.takePictureAsync();
-
-         switch (dato) {
+       //  photo = await this.camera.takePictureAsync({onPictureSaved: this.onPictureSaved});
+    
+   this.camera.takePictureAsync({ quality: 1, skipProcessing: true }).then((photo) => {  
+        switch (dato) {
           case 'uno': this.setState({ 
            image1: photo.uri,
            isCapturing: false, 
@@ -144,7 +145,9 @@ async accessCamera(dato)
            });
           break;
         }
-        
+
+
+       })
     }
     else
     {
@@ -159,6 +162,9 @@ async accessCamera(dato)
   }
 
   render() {
+
+    modelo= this.props.navigation.getParam('datos');
+
     let { image1 } = this.state;
     let { image2 } = this.state;
     let { image3 } = this.state;
@@ -306,17 +312,20 @@ transparent = {true}
      </Modal>
   
   { this.state.isCapturing?   
-                <View style={{height:'100%'}}>
+                <View style={{height:'100%',backgroundColor:'black'}}>
                 {this.state.atras?
-                <View  style={{}}>
-               <Camera style={{ height: "100%", width: "100%" }} 
-               ref={ref => { this.camera = ref}} type={Camera.Constants.Type.back}/>
+                <View  style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+               <Camera style={{ height: "65%", width: "100%" }} 
+              autoFocus={false}
+             ref={ref => { this.camera = ref}} type={Camera.Constants.Type.back}/>
                   <TouchableOpacity style={{
-                  position:'absolute',top :hp('5%'),left:wp('45%')
+                  position:'absolute',top :hp('8%'),left:wp('47%')
                }} onPress={()=>this.setState({
                  atras:false,
                })
                       }>
+
+
                 <Ionicons name="md-reverse-camera" size={25} color="#e2e7ee" />
                </TouchableOpacity>
                  <TouchableOpacity style={{
@@ -327,11 +336,12 @@ transparent = {true}
                </TouchableOpacity>
             
                 </View> :
-                <View style={{flex:1}}>
-                   <Camera style={{ height: "100%", width: "100%" }} 
-               ref={ref => { this.camera = ref}} type={Camera.Constants.Type.front}/>
+                <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+                   <Camera style={{ height: "65%", width: "100%" }} 
+             autoFocus={false}
+            ref={ref => { this.camera = ref}} type={Camera.Constants.Type.front}/>
                 <TouchableOpacity style={{
-    position:'absolute',top :hp('5%'),left:wp('45%')
+    position:'absolute',top :hp('8%'),left:wp('47%')
  }} onPress={()=>this.setState({
    atras:true,
  })
@@ -400,7 +410,7 @@ transparent = {true}
            
                <Text style={{
                 color:'#25265e',fontSize:hp('3.2%'), fontWeight:'bold',marginTop:hp('1.5%')
-                  }}>MINI 3-door Hatch</Text>
+                  }}>{modelo}</Text>
                <TouchableOpacity
                  onPress={() => this.props.navigation.pop()} >
                 <Text style={{

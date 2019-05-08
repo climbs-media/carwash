@@ -72,7 +72,7 @@ toggleModal(visible) {
    else{
     widfot='26%';
     widmodfo='32%';
-    LeftModal=screenWidth-wp('96.5%');
+    LeftModal=screenWidth-wp('97.5%');
    }
 
     return (

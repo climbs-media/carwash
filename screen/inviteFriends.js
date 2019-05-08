@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Alert,Platform,
   StyleSheet,ImageBackground, 
-  Text, 
+  Text,Dimensions,
   View,Image,TouchableOpacity,TextInput,ScrollView
 } from 'react-native';
  
@@ -30,6 +30,36 @@ export default class InviteFriends extends Component {
 
   render() {
 
+    let screenHeight=Dimensions.get('window').height;
+
+    if(screenHeight<=592){
+      tit='3.2%'
+      subti='2%'
+      link='3%'
+      but='2.7%'
+    }else if(screenHeight<=678){
+      tit='3.2%'
+      subti='2%'
+      link='3%'
+      but='2.7%'
+    }else if(screenHeight<=684){
+      tit='3.2%'
+      subti='2%'
+      link='3%'
+      but='2.7%'
+    }else if(screenHeight<=775){
+      tit='2.5%'
+      subti='1.5%'
+      link='2.4%'
+      but='2.4%'
+     }else{
+      tit='2.5%'
+      subti='1.5%'
+      link='2.4%'
+      but='2.4%'
+    }
+     
+   
    
     return (
     <View style={{flex:1}}>
@@ -89,22 +119,22 @@ export default class InviteFriends extends Component {
                   alignItems:'center'
               }}>
                  <Text style={{marginTop:hp('1%'),
-                   color:'#25265e' , fontSize :hp('3.2%'), fontWeight:'500'  
+                   color:'#25265e' , fontSize :hp(tit), fontWeight:'500'  
                  }} >Invite Friends</Text>
                  <Text style={{
-                   color:'#25265e' , fontSize :hp('3.2%'), fontWeight:'500'  
+                   color:'#25265e' , fontSize :hp(tit), fontWeight:'500'  
                  }}>Get 3 Coupons each</Text>
 
-                 <Text style={{marginTop:hp('1%'),color:'#25265e' , fontSize :hp('2%'), fontWeight:'500' 
+                 <Text style={{marginTop:hp('1%'),color:'#25265e' , fontSize :hp(subti), fontWeight:'500' 
                  }}>When your friend sign up with your referral</Text>
                   <Text style={{
-                   color:'#25265e' , fontSize :hp('2%'), fontWeight:'500' 
+                   color:'#25265e' , fontSize :hp(subti), fontWeight:'500' 
                   }}>link, you'll both get 3.0 coupons</Text>
                  
                  <View style={{marginVertical:hp('2%') ,
                  marginHorizontal:wp('5%') }}>
                   <Text style={{ textAlign: 'center',
-                  color:'#4554e5' , fontSize :hp('3%'), fontWeight:'400' 
+                  color:'#4554e5' , fontSize :hp(link), fontWeight:'400' 
                         }}>http://www.carwash.com/DWNXPtpV99xuTg</Text>
 
                  </View>
@@ -122,7 +152,7 @@ export default class InviteFriends extends Component {
                                          start={[0.1,0.1]}
                                           end={[0.6,0.6]}
                                            ><Text style={{
-                                               color:'white',fontSize:hp('2.7%')
+                                               color:'white',fontSize:hp(but)
                                           }}>Share Promotion Link</Text>
                                </LinearGradient>
                              </TouchableOpacity>
