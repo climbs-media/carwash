@@ -16,7 +16,7 @@ import Blog from "./screen/blog"
 import BlogArticle from "./screen/blogArticle"
 
 import CarDetails1 from "./screen/carDetails1"
-import CarDetails2 from "./screen/carDetails2"
+
 import CarDetailsLocation  from "./screen/carDetailsLocation"
 
 import ChatWithWasher from "./screen/chatWithWasher"
@@ -85,7 +85,7 @@ import WasherHistory from './screen/washerHistory'
 import SearchMakeModel from "./screen/searchMakeModel"
 import Team from "./screen/Team"
 
-import Videos from "./screen/video"
+
 import SideMenu from "./screen/sidemenu"
 import SideMenu2 from "./screen/sidemenu2"
 
@@ -354,7 +354,6 @@ const MyStack =createStackNavigator(
   blog:Blog,
   blogArticle:BlogArticle,
   carDetails1:CarDetails1,
- // carDetails2:CarDetails2,
   carDetailsLocation:CarDetailsLocation,
   chatWithWasher:ChatWithWasher,
   chatWithClient:ChatWithClient,
@@ -408,12 +407,10 @@ const MyStack =createStackNavigator(
   washerProgress7:WasherProgress7,
   washerHistoryDetail:WasherHistoryDetail,
   washerHistory:WasherHistory,
-  video:Videos,
+ 
   },
   {
 
-
- // carDetails2:CarDetails2,
   initialRouteName: 'splashScreen',
     }
  
